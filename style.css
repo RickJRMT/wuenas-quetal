@@ -1,0 +1,208 @@
+/* Reset y configuración base */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Fondo dulce y oscuro */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #2d1b4e 0%, #3d2a5f 50%, #1a1a3e 100%);
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    position: relative;
+    overflow: auto;
+    padding: 1vh 0;
+}
+
+/* Efecto de brillo sutil de fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 192, 203, 0.1) 0%, transparent 70%);
+    animation: glowAnimation 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes glowAnimation {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, 10px);
+    }
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 2vw;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 192, 203, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedores de imágenes */
+#gifContainer,
+#happyGifContainer,
+#happyGifContainer2,
+#happyGifContainer3,
+#happyGifContainer4,
+#sadGifContainer,
+#sadGifContainer1,
+#sadGifContainer2 {
+    position: relative;
+    margin: 0.5em auto;
+    flex-shrink: 0;
+}
+
+#gifContainerImg,
+#gifContainer img,
+#happyGifContainer img,
+#happyGifContainer2 img,
+#happyGifContainer3 img,
+#happyGifContainer4 img,
+#sadGifContainer img,
+#sadGifContainer1 img,
+#sadGifContainer2 img {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(255, 192, 203, 0.3);
+    border: 2px solid rgba(255, 192, 203, 0.4);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+#gifContainer img:hover,
+#happyGifContainer img:hover,
+#happyGifContainer2 img:hover,
+#happyGifContainer3 img:hover,
+#happyGifContainer4 img:hover,
+#sadGifContainer img:hover,
+#sadGifContainer1 img:hover,
+#sadGifContainer2 img:hover {
+    transform: scale(1.02);
+}
+
+/* Título/Pregunta */
+h1#question {
+    font-size: clamp(1.2em, 5vw, 2.2em);
+    margin: 0.3em 0 0.3em 0;
+    word-break: break-word;
+    color: #ffb6d9;
+    text-shadow: 0 2px 10px rgba(255, 192, 203, 0.5);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* Botones */
+button {
+    padding: clamp(0.4em, 2vw, 1.5em) clamp(0.6em, 3vw, 1.5em);
+    font-size: clamp(0.85em, 3vw, 1em);
+    margin: 0.3em;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 192, 203, 0.6);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    max-width: 90%;
+    word-wrap: break-word;
+    white-space: normal;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#siBtn {
+    background-color: #52b788;
+    color: white;
+}
+
+#siBtn:hover {
+    background-color: #40916c;
+}
+
+#noBtn {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+#noBtn:hover {
+    background-color: #e63946;
+}
+
+/* Video container */
+#videoContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+#videoContainer video {
+    width: 90%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(255, 192, 203, 0.3);
+    border: 2px solid rgba(255, 192, 203, 0.4);
+}
+
+/* Mensaje */
+#messageContainer {
+    font-size: clamp(0.9em, 2.5vw, 1.1em);
+    color: #ffb6d9;
+    margin: 1em 0;
+    font-style: italic;
+    text-shadow: 0 2px 8px rgba(255, 192, 203, 0.3);
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 3vw;
+    }
+
+    button {
+        padding: 0.5em 1em;
+        font-size: 0.9em;
+    }
+}
